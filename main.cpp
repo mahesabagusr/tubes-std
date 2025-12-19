@@ -17,6 +17,7 @@ int main() {
         displayMainMenu();
         int choice;
         cin >> choice;
+        cin.ignore();
         switch (choice) {
             case 1:
                 menuTournament(L);

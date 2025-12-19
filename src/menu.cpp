@@ -389,7 +389,8 @@ void searchTournament(ListTournament L) {
     string name;
     cout << "\n=== Search Tournament ===";
     cout << "\nMasukkan nama tournament: ";
-    cin >> name;
+    cin.ignore();
+    getline(cin, name);
     adrTournament P = findTournamentByName(L, name);
     if (P) {
         cout << "\nID             : " << P->info.tournamentID << endl;

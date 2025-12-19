@@ -1,4 +1,5 @@
 #include "tournament.h"
+#include "match.h"
 #include <iostream>
 #include <iomanip>
 using namespace std;
@@ -24,6 +25,9 @@ void queryTournamentByPrize(ListTournament L, int minPrize) {
     if (!found) {
         cout << "Tidak ada tournament dengan hadiah >= $" << minPrize << endl;
     }
+    cout << "\nTekan Enter untuk melanjutkan...";
+    cin.ignore();
+    cin.get();
 }
 
 int countAllTournaments(ListTournament L) {

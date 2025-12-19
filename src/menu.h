@@ -2,6 +2,7 @@
 #define MENU_H
 
 #include "tournament.h"
+#include "match.h"
 
 void displayMainMenu();
 void displayTournamentMenu();
