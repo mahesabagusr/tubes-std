@@ -94,15 +94,15 @@ void startMenu(ListTournament &L) {
 void addTournament(ListTournament &L) {
     Tournament t;
     adrTournament P = nullptr;
-    int id = NULL;
+    int id = -1;
     cout<<endl;
     cout<<"=== Tambah Tournament Baru ==="<<endl;
     cout<<"ID Tournament: ";
     cin >> t.tournamentID;
     cin.ignore();
 
-    id = findTournamentByID(L, t.tournamentID) ? t.tournamentID : NULL;
-    if (id != NULL) {
+    id = findTournamentByID(L, t.tournamentID) ? t.tournamentID : -1;
+    if (id != -1) {
         cout<<"Error: Tournament dengan ID tersebut sudah ada!"<<endl;
         return;
     }
