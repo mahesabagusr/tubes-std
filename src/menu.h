@@ -23,11 +23,10 @@ void searchMatchByIDWithList(ListTournament L);
 void handleUpdateMatch(ListTournament L);
 void handleDeleteMatch(ListTournament L);
 
-void searchTournament(ListTournament L);
 void queryTournament(ListTournament L);
+void menuAverage(ListTournament L);
+void menuGroupBy(ListTournament L);
 
 void showStatistics(ListTournament L);
-
-void loadSampleData(ListTournament &L);
 
 #endif

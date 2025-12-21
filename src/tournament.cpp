@@ -1,4 +1,5 @@
 #include "tournament.h"
+#include "utils.h"
 #include <iostream>
 using namespace std;
 
@@ -113,9 +114,7 @@ void showAllTournaments(ListTournament L)
         cout<<"----------------------------------------"<<endl;
         P = P->next;
     }
-    cout<<"\nTekan Enter untuk melanjutkan...";
-    cin.ignore();
-    cin.get();
+    pauseScreen();
 }
 
 void updateTournament(ListTournament &L, int tournamentID) {

@@ -1,6 +1,7 @@
 #include <iostream>
 #include "src/tournament.h"
 #include "src/menu.h"
+#include "src/data_loader.h"
 using namespace std;
 
 int main() 

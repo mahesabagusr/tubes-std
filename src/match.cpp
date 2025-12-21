@@ -1,5 +1,6 @@
 #include "match.h"
 #include "tournament.h"
+#include "utils.h"
 #include <iostream>
 using namespace std;
 
@@ -98,9 +99,7 @@ void showAllMatches(adrTournament P) {
         cout<<"----------------------------------------"<<endl;
         M = M->next;
     }
-    cout<<"\nTekan Enter untuk melanjutkan...";
-    cin.ignore();
-    cin.get();
+    pauseScreen();
 }
 
 void updateMatch(adrTournament P, int matchID) {

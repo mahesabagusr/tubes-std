@@ -44,6 +44,12 @@ int countAllTournaments(ListTournament L);
 int countAllMatches(ListTournament L);
 int countMatchesByTournament(adrTournament P);
 
+void deleteFirstTournament(ListTournament &L);
+void deleteLastTournament(ListTournament &L);
+float getAveragePrize(ListTournament L);
+float getAverageMatchPerTournament(ListTournament L);
+void groupTournamentByGame(ListTournament L);
+
 void deleteAllTournaments(ListTournament &L);
 
 #endif
