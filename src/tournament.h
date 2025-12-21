@@ -40,6 +40,7 @@ void showAllTournaments(ListTournament L);
 void updateTournament(ListTournament &L, int tournamentID);
 
 void queryTournamentByPrize(ListTournament L, int minPrize);
+void queryTournamentByPrizeAndMatches(ListTournament L, int minPrize, int minMatches);
 int countAllTournaments(ListTournament L);
 int countAllMatches(ListTournament L);
 int countMatchesByTournament(adrTournament P);

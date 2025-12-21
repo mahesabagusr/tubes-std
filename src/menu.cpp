@@ -369,13 +369,35 @@ void DeleteMatch(ListTournament L) {
 }
 
 void queryTournament(ListTournament L) {
-    int minPrize;
-    cout<<endl;
-    cout<<"=== Query Tournament by Prize ===";
-    cout<<endl;
-    cout<<"Minimal hadiah ($): ";
-    cin >> minPrize;
-    queryTournamentByPrize(L, minPrize);
+    while (true) {
+        cout<<endl;
+        cout<<"=== QUERY TOURNAMENT ==="<<endl;
+        cout<<"1. Query by Prize"<<endl;
+        cout<<"2. Complex Query"<<endl;
+        cout<<"0. Kembali"<<endl;
+        cout<<"Pilih: ";
+        int choice;
+        cin >> choice;
+        if (choice == 1) {
+            int minPrize;
+            cout<<endl;
+            cout<<"=== Query Tournament by Prize ==="<<endl;
+            cout<<"Minimal hadiah ($): ";
+            cin >> minPrize;
+            queryTournamentByPrize(L, minPrize);
+        } else if (choice == 2) {
+            int minPrize, minMatches;
+            cout<<endl;
+            cout<<"=== Complex Query (Prize + Matches) ==="<<endl;
+            cout<<"Minimal hadiah ($): ";
+            cin >> minPrize;
+            cout<<"Minimal jumlah match: ";
+            cin >> minMatches;
+            queryTournamentByPrizeAndMatches(L, minPrize, minMatches);
+        } else {
+            break;
+        }
+    }
 }
 
 void menuAverage(ListTournament L) {
