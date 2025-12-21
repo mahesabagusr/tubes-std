@@ -21,6 +21,7 @@ Tubes-Std/
 ## STRUKTUR DATA
 
 ### 1. Tournament (Parent)
+
 ```cpp
 struct Tournament {
     int tournamentID;
@@ -34,6 +35,7 @@ struct Tournament {
 ```
 
 ### 2. Match (Child)
+
 ```cpp
 struct Match {
     int matchID;
@@ -48,6 +50,7 @@ struct Match {
 ```
 
 ### 3. Relasi
+
 - **Multi Level List**: Tournament → Match (One-to-Many)
 - **Tournament List**: Single Linked List
 - **Match List**: Single Linked List per Tournament
@@ -57,22 +60,27 @@ struct Match {
 ### A. TOURNAMENT OPERATIONS (tournament.cpp)
 
 #### 1. Inisialisasi & Pembuatan
+
 - `createListTournament(ListTournament &L)`
 - `createElmTournament(Tournament data) → adrTournament`
 
 #### 2. Insertion
+
 - `insertFirstTournament(ListTournament &L, adrTournament P)`
 - `insertLastTournament(ListTournament &L, adrTournament P)`
 - `insertAfterTournament(ListTournament &L, adrTournament Prec, adrTournament P)`
 
 #### 3. Search & Retrieval
+
 - `findTournamentByID(ListTournament L, int tournamentID) → adrTournament`
 - `findTournamentByName(ListTournament L, string name) → adrTournament`
 
 #### 4. Display
+
 - `showAllTournaments(ListTournament L)`
 
 #### 5. Update & Delete
+
 - `updateTournament(ListTournament &L, int tournamentID)`
 - `deleteTournament(ListTournament &L, int tournamentID)`
 - `deleteAllTournaments(ListTournament &L)`
@@ -80,20 +88,25 @@ struct Match {
 ### B. MATCH OPERATIONS (match.cpp)
 
 #### 1. Pembuatan
+
 - `createElmMatch(Match data) → adrMatch`
 
 #### 2. Insertion
+
 - `insertFirstMatch(adrTournament P, adrMatch M)`
 - `insertLastMatch(adrTournament P, adrMatch M)`
 
 #### 3. Search
+
 - `findMatchByID(adrTournament P, int matchID) → adrMatch`
 - `findMatchByName(adrTournament P, string matchName) → adrMatch`
 
 #### 4. Display
+
 - `showAllMatches(adrTournament P)`
 
 #### 5. Update & Delete
+
 - `updateMatch(adrTournament P, int matchID)`
 - `deleteMatch(adrTournament P, int matchID)`
 - `deleteAllMatches(adrTournament P)`
@@ -101,10 +114,12 @@ struct Match {
 ### C. QUERY & COUNTING (query.cpp)
 
 #### 1. Query
+
 - `queryTournamentByPrize(ListTournament L, int minPrize)`
   - Mencari tournament dengan hadiah >= nilai tertentu
 
 #### 2. Counting
+
 - `countAllTournaments(ListTournament L) → int`
 - `countAllMatches(ListTournament L) → int`
 - `countMatchesByTournament(adrTournament P) → int`
@@ -112,30 +127,35 @@ struct Match {
 ### D. MENU & USER INTERFACE (menu.cpp)
 
 #### 1. Display Menu
+
 - `displayMainMenu()`
 - `displayTournamentMenu()`
 - `displayMatchMenu()`
 
 #### 2. Menu Controllers
+
 - `startMenu(ListTournament &L)` - Main loop
 - `menuTournament(ListTournament &L)` - Tournament menu handler
 - `menuMatch(ListTournament &L)` - Match menu handler
 
 #### 3. Tournament UI Handlers
+
 - `addTournament(ListTournament &L)`
-- `searchTournamentByIDWithList(ListTournament L)`
+- `searchTournamentByID(ListTournament L)`
 - `searchTournamentByName(ListTournament L)`
 - `handleUpdateTournament(ListTournament &L)`
 - `handleDeleteTournament(ListTournament &L)`
 
 #### 4. Match UI Handlers
+
 - `addMatch(ListTournament &L)`
 - `handleShowMatches(ListTournament L)`
-- `searchMatchByIDWithList(ListTournament L)`
+- `searchMatchByID(ListTournament L)`
 - `handleUpdateMatch(ListTournament L)`
 - `handleDeleteMatch(ListTournament L)`
 
 #### 5. Utility
+
 - `searchTournament(ListTournament L)` - Quick search
 - `queryTournament(ListTournament L)` - Query by prize
 - `showStatistics(ListTournament L)` - Display stats
@@ -169,11 +189,13 @@ main.cpp
 ## COMPILE & RUN
 
 ### Compile
+
 ```powershell
 g++ main.cpp src\tournament.cpp src\match.cpp src\menu.cpp src\query.cpp -o bin\app.exe
 ```
 
 ### Run
+
 ```powershell
 .\bin\app.exe
 ```
@@ -181,16 +203,19 @@ g++ main.cpp src\tournament.cpp src\match.cpp src\menu.cpp src\query.cpp -o bin\
 ## FITUR PROGRAM
 
 1. **Tournament Management**
+
    - CRUD Tournament (Create, Read, Update, Delete)
    - Search by ID atau Name
    - List semua tournament
 
 2. **Match Management**
+
    - CRUD Match dalam Tournament
    - Search match by ID
    - List semua match per tournament
 
 3. **Query & Statistics**
+
    - Query tournament berdasarkan minimal prize
    - Hitung total tournament
    - Hitung total match

@@ -11,17 +11,17 @@ void startMenu(ListTournament &L);
 
 void menuTournament(ListTournament &L);
 void addTournament(ListTournament &L);
-void searchTournamentByIDWithList(ListTournament L);
+void searchTournamentByID(ListTournament L);
 void searchTournamentByName(ListTournament L);
-void handleUpdateTournament(ListTournament &L);
-void handleDeleteTournament(ListTournament &L);
+void UpdateTournament(ListTournament &L);
+void DeleteTournament(ListTournament &L);
 
 void menuMatch(ListTournament &L);
 void addMatch(ListTournament &L);
-void handleShowMatches(ListTournament L);
-void searchMatchByIDWithList(ListTournament L);
-void handleUpdateMatch(ListTournament L);
-void handleDeleteMatch(ListTournament L);
+void ShowMatches(ListTournament L);
+void searchMatchByID(ListTournament L);
+void UpdateMatch(ListTournament L);
+void DeleteMatch(ListTournament L);
 
 void queryTournament(ListTournament L);
 void menuAverage(ListTournament L);
