@@ -1,6 +1,8 @@
 #include "tournament.h"
 #include "utils.h"
 #include <iostream>
+#include <vector>
+#include <algorithm>
 using namespace std;
 
 void createListTournament(ListTournament &L) {
@@ -113,6 +115,37 @@ void showAllTournaments(ListTournament L)
         cout<<"Jumlah Match   : "<<countMatchesByTournament(P)<<endl;
         cout<<"----------------------------------------"<<endl;
         P = P->next;
+    }
+    pauseScreen();
+}
+
+void showTournamentsSortedByPrize(ListTournament L) {
+    if(L.first == nullptr){
+        cout<<"Belum ada tournament yang terdaftar."<<endl;
+        return;
+    }
+
+    vector<adrTournament> arr;
+    adrTournament P = L.first;
+    while(P != nullptr){
+        arr.push_back(P);
+        P = P->next;
+    }
+
+    sort(arr.begin(), arr.end(), [](adrTournament a, adrTournament b){
+        return a->info.totalPrize > b->info.totalPrize; // descending
+    });
+
+    cout<<"\n=== DAFTAR TOURNAMENT (Diurutkan berdasarkan Total Prize) ==="<<endl;
+    for(auto &t : arr){
+        cout<<"ID Tournament  : "<<t->info.tournamentID<<endl;
+        cout<<"Nama           : "<<t->info.tournamentName<<endl;
+        cout<<"Game           : "<<t->info.game<<endl;
+        cout<<"Tanggal Mulai  : "<<t->info.startDate<<endl;
+        cout<<"Tanggal Selesai: "<<t->info.endDate<<endl;
+        cout<<"Total Hadiah   : $"<<t->info.totalPrize<<endl;
+        cout<<"Jumlah Match   : "<<countMatchesByTournament(t)<<endl;
+        cout<<"----------------------------------------"<<endl;
     }
     pauseScreen();
 }

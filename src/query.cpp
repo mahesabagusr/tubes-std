@@ -29,6 +29,32 @@ void queryTournamentByPrize(ListTournament L, int minPrize)
     pauseScreen();
 }
 
+    void queryTournamentByPrizeAndMatches(ListTournament L, int minPrize, int minMatches)
+    {
+        adrTournament P = L.first;
+        bool found = false;
+
+        cout << "\n=== Tournament dengan Hadiah >= $" << minPrize << " dan Jumlah Match >= " << minMatches << " ===" << endl;
+
+        while (P != nullptr) {
+            int matches = countMatchesByTournament(P);
+            if (P->info.totalPrize >= minPrize && matches >= minMatches) {
+                cout << "\nNama: " << P->info.tournamentName << endl;
+                cout << "Game: " << P->info.game << endl;
+                cout << "Hadiah: $" << P->info.totalPrize << endl;
+                cout << "Jumlah Match: " << matches << endl;
+                cout << "----------------------------------------" << endl;
+                found = true;
+            }
+            P = P->next;
+        }
+
+        if (!found) {
+            cout << "Tidak ada tournament dengan hadiah >= $" << minPrize << " dan jumlah match >= " << minMatches << endl;
+        }
+        pauseScreen();
+    }
+
 int countAllTournaments(ListTournament L) {
     int count = 0;
     adrTournament P = L.first;

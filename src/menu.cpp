@@ -31,6 +31,7 @@ void displayTournamentMenu() {
     cout<<"4. Cari Tournament by Nama"<<endl;
     cout<<"5. Update Tournament"<<endl;
     cout<<"6. Hapus Tournament"<<endl;
+    cout<<"7. Lihat Tournament Diurutkan berdasarkan Prize"<<endl;
     cout<<"0. Kembali ke Menu Utama"<<endl;
     cout<<"========================================"<<endl;
     cout<<"Pilih menu: ";
@@ -369,13 +370,35 @@ void DeleteMatch(ListTournament L) {
 }
 
 void queryTournament(ListTournament L) {
-    int minPrize;
-    cout<<endl;
-    cout<<"=== Query Tournament by Prize ===";
-    cout<<endl;
-    cout<<"Minimal hadiah ($): ";
-    cin >> minPrize;
-    queryTournamentByPrize(L, minPrize);
+    while (true) {
+        cout<<endl;
+        cout<<"=== QUERY TOURNAMENT ==="<<endl;
+        cout<<"1. Query by Prize"<<endl;
+        cout<<"2. Complex Query"<<endl;
+        cout<<"0. Kembali"<<endl;
+        cout<<"Pilih: ";
+        int choice;
+        cin >> choice;
+        if (choice == 1) {
+            int minPrize;
+            cout<<endl;
+            cout<<"=== Query Tournament by Prize ==="<<endl;
+            cout<<"Minimal hadiah ($): ";
+            cin >> minPrize;
+            queryTournamentByPrize(L, minPrize);
+        } else if (choice == 2) {
+            int minPrize, minMatches;
+            cout<<endl;
+            cout<<"=== Complex Query (Prize + Matches) ==="<<endl;
+            cout<<"Minimal hadiah ($): ";
+            cin >> minPrize;
+            cout<<"Minimal jumlah match: ";
+            cin >> minMatches;
+            queryTournamentByPrizeAndMatches(L, minPrize, minMatches);
+        } else {
+            break;
+        }
+    }
 }
 
 void menuAverage(ListTournament L) {
@@ -446,6 +469,9 @@ void menuTournament(ListTournament &L) {
                 break;
             case 6:
                 DeleteTournament(L);
+                break;
+            case 7:
+                showTournamentsSortedByPrize(L);
                 break;
             case 0:
                 run = false;
